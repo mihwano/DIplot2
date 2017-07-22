@@ -1,0 +1,9 @@
+bokeh==0.12.5
+numpy==1.12.1
+pandas==0.19.2
+virtualenv==15.1.0
+Jinja2==2.9.5
+requests==2.13.0
+tornado==4.4.2
+PyYAML==3.12
+MarkupSafe==0.23

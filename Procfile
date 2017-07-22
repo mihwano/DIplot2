@@ -1,0 +1,1 @@
+web: bokeh serve --show --port $PORT --num-procs=0 --host=diplot1.herokuapp.com --address=0.0.0.0 --use-xheaders bokeh_plots.py
