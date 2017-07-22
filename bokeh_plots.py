@@ -56,15 +56,15 @@ def display_map(df, states_coords):
 
     df.rename(columns={'1rst term': 'term1', '2nd term': 'term2', '3rd term': 'term3', '1rst tgrm': 'trigram'}, inplace=True)
     source = ColumnDataSource(ColumnDataSource.from_df(df[['location', 'term1', 'term2', 'term3',
-                                     'trigram', 'colors', 'alphas']]))
+                                     'trigram', 'colors', 'alphas', 'partisan_split']]))
 
     # define map
     hover = mapfig.select(dict(type=HoverTool))
-    hover.tooltips = OrderedDict([('State', '@location'), ('1rst term', '@term1'),
+    hover.tooltips = OrderedDict([('State', '@location'), ('partisan split', '@partisan_split'), ('1rst term', '@term1'),
                                   ('2nd term', '@term2'), ('3rd term', '@term3'), ('1rst trigram', '@trigram')])
-    output_file("mapplot.html")
+
     mapfig.patches(state_xs, state_ys, fill_color="colors", fill_alpha="alphas",
-                   line_color="white", line_width=0.5, source=source)
+                   line_color="green", line_width=0.5, source=source)
     return mapfig
 
 
@@ -107,7 +107,7 @@ def first_plot():
                                                  'main_party', 'partisan_split']].first()
     mapfig = display_map(df, us_states)
     # show(mapfig)
-    return p
+    return mapfig
 
 
 def second_plot():
